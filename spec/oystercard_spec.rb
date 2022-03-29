@@ -2,6 +2,7 @@ require_relative '../lib/oystercard.rb'
 
 describe Oystercard do
   let(:entry_station) { double :entry_station }
+  let(:exit_station) { double :exit_Station } 
 
   it "shows user's balance"  do
     expect(subject.balance).to eq 0
@@ -18,7 +19,7 @@ describe Oystercard do
   it "can touch in" do 
     subject.top_up(1)
     subject.touch_in("Bank Station")
-    expect(subject).to be_in_journey
+    expect(subject.in_journey?).to be_truthy
   end
   it "can touch out" do
     subject.top_up(1)
