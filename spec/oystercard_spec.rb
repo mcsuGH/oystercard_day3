@@ -19,7 +19,8 @@ describe Oystercard do
   it "can touch in" do 
     subject.top_up(1)
     journey = Journey.new("Bank Station")
-    expect(subject.touch_in("Bank Station")).to eq an_instance_of(Journey)
+    subject.touch_in("Bank Station")
+    expect(journey.entry_station).to include("Bank Station")
   end
   it "can touch out" do
     subject.top_up(1)
