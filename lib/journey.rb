@@ -6,21 +6,12 @@ MAXIMUM_FARE = 6
 MINIMUM_FARE = 1
 
     def initialize(entry_station)
-        record_journey(entry_station)
-        @exit_station = nil
-        @journey_history = []
-    end
-
-    def record_journey(entry_station)
         @entry_station = entry_station
-        @current_journey = {entry_station: nil, exit_station: nil}
-        @current_journey[:entry_station] = entry_station
+        @exit_station = nil
     end
 
-    def end_journey(exit_station)
+    def finish(exit_station)
         @exit_station = exit_station
-        @current_journey[:exit_station] = exit_station
-        @journey_history.push(@current_journey)
         @entry_station = nil
         self
     end
@@ -34,6 +25,6 @@ MINIMUM_FARE = 1
     end
 
     def fare
-    complete? ? MINIMUM_FARE : MAXIMUM_FARE
+      complete? ? MINIMUM_FARE : MAXIMUM_FARE
     end
 end

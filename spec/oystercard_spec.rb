@@ -27,7 +27,7 @@ describe Oystercard do
     subject.top_up(1)
     subject.touch_in("Bank Station")
     subject.touch_out("Westminster")
-    expect(subject.journey.journey_history.count).to eq(1)
+    expect(subject.journeylog.journey_history.count).to eq(1)
   end
   it "should raise an error if the maximum balance is exceeded" do
     maximum_balance = Oystercard::MAX_BALANCE
@@ -44,12 +44,12 @@ describe Oystercard do
   #   expect(subject.touch_in("Bank Station")).to eq "Bank Station"
   # end
   it "should have an empty journey history by default" do
-    expect(subject.journey.journey_history).to eq []
+    expect(subject.journeylog.journey_history).to eq []
   end
   it "should create one journey when touching in then touching out" do
     subject.top_up(1)
     subject.touch_in(entry_station)
     subject.touch_out(exit_station)
-    expect(subject.journey.journey_history[0]).to include(journey)
+    expect(subject.journeylog.journey_history[0]).to include(journey)
   end
 end

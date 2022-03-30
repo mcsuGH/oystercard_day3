@@ -14,14 +14,14 @@ describe Journey do
         expect(journey.fare).to eq Journey::MAXIMUM_FARE
     end
     it "Should deduct a minimum fare of 1 if user touches in and touches out" do
-        journey.end_journey(exit_station)
+        journey.finish(exit_station)
         expect(journey.fare).to eq 1
     end
     it "returns itself when exiting a journey" do
-        expect(journey.end_journey(exit_station)).to eq(journey)
+        expect(journey.finish(exit_station)).to eq(journey)
     end
     it "knows if a journey is complete" do
-        journey.end_journey(exit_station)
+        journey.finish(exit_station)
         expect(journey.complete?).to eq true
     end
 end
