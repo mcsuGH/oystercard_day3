@@ -2,7 +2,7 @@ require_relative '../lib/oystercard.rb'
 
 describe Oystercard do
   let(:entry_station) { double :entry_station }
-  let(:exit_station) { double :exit_Station } 
+  let(:exit_station) { double :exit_station } 
   let(:journey) { {entry_station: entry_station, exit_station: exit_station} }
 
   it "shows user's balance"  do

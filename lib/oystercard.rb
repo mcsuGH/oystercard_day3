@@ -1,6 +1,7 @@
-require_relative 'journey'
-require_relative 'journeylog'
-require_relative 'station'
+require_relative  'station'
+require_relative  'journeylog'
+require_relative  'journey'
+
 
 class Oystercard
 
@@ -19,14 +20,14 @@ attr_reader :balance, :journeylog
     @balance += money
   end
 
-  def touch_in(entry_station)
+  def touch_in(station)
     fail "There are insufficient funds" if balance < MIN_BALANCE
-    @journeylog.start_journey(entry_station)
+    @journeylog.start_journey(station)
   end
 
-  def touch_out(exit_station)
-    @journeylog.end_journey(exit_station)
-    deduct(MIN_BALANCE)
+  def touch_out(station)
+    @journeylog.end_journey(station)
+    deduct(@journeylog.cost)
   end
 
   private 
