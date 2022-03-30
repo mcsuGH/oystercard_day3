@@ -7,6 +7,7 @@ attr_accessor :exit_station, :journey, :entry_station, :current_journey, :journe
 MAXIMUM_FARE = 6
 MINIMUM_FARE = 1
 
+
     def initialize(station: Station)
         @entry_station = station
         @exit_station = nil
