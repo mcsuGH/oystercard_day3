@@ -24,4 +24,22 @@ describe Journey do
         journey.finish(exit_station)
         expect(journey.complete?).to eq true
     end
+    it "charges an additional 1 when 1 zone is passed" do
+        expect(journey.fare).to eq 2
+    end
+    it "charges an additional 2 when 2 zones are passed" do
+        expect(journey.fare).to eq 3
+    end
+    it "charges an additional 3 when 3 zones are passed" do
+        expect(journey.fare).to eq 4
+    end
+    it "charges an additional 4 when 4 zones are passed" do
+        expect(journey.fare).to eq 5
+    end
+    it "charges an additional 5 when 5 zones are passed" do
+        expect(journey.fare).to eq 6
+    end
+    it "charges the minimum fare when no zones are passed" do
+        expect(journey.fare).to eq MINIMUM_FARE
+    end
 end

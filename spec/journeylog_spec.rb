@@ -14,12 +14,12 @@ describe JourneyLog do
   it 'should end a journey' do
     subject.start_journey(entry_station)
     subject.end_journey(exit_station)
-    expect(subject.journey_history[0][:exit_station]).to eq exit_station
+    expect(subject.history[0][:exit_station]).to eq exit_station
   end
 
   it 'should record a list of journey history' do
     subject.start_journey(entry_station)
     subject.end_journey(exit_station)
-    expect(subject.journey_history).to include(journey)
+    expect(subject.history).to include(journey)
   end
 end
