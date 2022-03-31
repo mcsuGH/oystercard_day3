@@ -30,6 +30,11 @@ attr_reader :balance, :journeylog
     deduct(@journeylog.cost)
   end
 
+  def no_touch_out
+    @journeylog.no_touch_out
+    deduct(@journeylog.cost)
+  end
+
   private 
 
   def deduct(money)

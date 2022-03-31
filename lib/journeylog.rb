@@ -23,6 +23,11 @@ class JourneyLog
     cost
   end
 
+  def no_touch_out
+    record_journey
+    cost
+  end
+
   def cost
     @cost = @journey_class.fare
   end
