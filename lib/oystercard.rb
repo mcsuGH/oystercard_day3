@@ -10,9 +10,9 @@ MIN_BALANCE = 1
 
 attr_reader :balance, :journeylog
 
-  def initialize
+  def initialize(journeylog = JourneyLog.new(journey_class: Journey))
     @balance = 0
-    @journeylog = JourneyLog.new(journey_class: Journey)
+    @journeylog = journeylog
   end
 
   def top_up(money)
