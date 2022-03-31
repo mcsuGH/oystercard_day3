@@ -1,8 +1,8 @@
 require_relative '../lib/oystercard.rb'
 
 describe Oystercard do
-  let(:entry_station) { double :entry_station }
-  let(:exit_station) { double :exit_station } 
+  let(:entry_station) { double :entry_station, :zone=>1 }
+  let(:exit_station) { double :exit_station, :zone =>1 } 
   let(:journey) { {entry_station: entry_station, exit_station: exit_station} }
 
   it "shows user's balance"  do
@@ -20,7 +20,7 @@ describe Oystercard do
   it "can touch in" do 
     subject.top_up(1)
     subject.touch_in(entry_station)
-    expect(subject.entry_station).to include(entry_station)
+    expect(subject.journeylog.current_journey[:entry_station]).to eq(entry_station)
   end
   it "can touch out" do
     subject.top_up(1)

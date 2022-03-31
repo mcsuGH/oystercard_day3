@@ -1,10 +1,10 @@
 require 'journeylog'
 
 describe JourneyLog do
-  let(:entry_station) { double :entry_station }
-  let(:exit_station) { double :exit_station }
+  let(:entry_station) { double :entry_station, :zone=>1 }
+  let(:exit_station) { double :exit_station, :zone=>1 }
   let(:journey) { {entry_station: entry_station, exit_station: exit_station} }
-  let(:subject) { JourneyLog.new(journey_class: Journey.new(nil)) }
+  let(:subject) { JourneyLog.new(journey_class: Journey.new(Station.new(nil,nil))) }
 
   it 'start a journey' do
     subject.start_journey(entry_station)

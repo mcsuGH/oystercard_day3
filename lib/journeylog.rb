@@ -4,7 +4,7 @@ require_relative 'station'
 class JourneyLog
   attr_reader :current_journey, :cost
 
-  def initialize(journey_class: Journey.new(nil))
+  def initialize(journey_class: Journey.new(Station(nil,nil)))
     @journey_class = journey_class
     @current_journey = {entry_station: nil, exit_station: nil}
     @journey_history = []

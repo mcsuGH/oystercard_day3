@@ -8,13 +8,13 @@ MAXIMUM_FARE = 6
 MINIMUM_FARE = 1
 
 
-    def initialize(station = Station.new(nil,nil))
+    def initialize(station)
         @entry_station = station
         @exit_station = nil
         @entry_zone = @entry_station.zone
     end
 
-    def finish(station = Station.new(nil,nil))
+    def finish(station)
         @exit_station = station
         @exit_zone = @exit_station.zone
         @entry_station = nil
