@@ -4,7 +4,7 @@ require_relative 'station'
 class JourneyLog
   attr_reader :current_journey, :cost
 
-  def initialize(journey_class: Journey.new(Station(nil,nil)))
+  def initialize(journey_class: Journey.new)
     @journey_class = journey_class
     @current_journey = {entry_station: nil, exit_station: nil}
     @journey_history = []
@@ -18,10 +18,9 @@ class JourneyLog
 
   def end_journey(station)
     @current_journey[:exit_station] = station
-    @journey_history.push(@current_journey)
     @journey_class.finish(station)
+    record_journey
     cost
-    @current_journey = {entry_station: nil, exit_station: nil}
   end
 
   def cost
@@ -34,11 +33,8 @@ class JourneyLog
 
   private 
 
-  def current
-    if @current_journey[:exit_station] == nil
-      @current_journey
-    else
-      @journey_class = Journey.new(nil)
-    end
+  def record_journey
+    @journey_history.push(@current_journey)
+    @current_journey = {entry_station: nil, exit_station: nil}
   end
 end
