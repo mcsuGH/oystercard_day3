@@ -2,7 +2,8 @@ require_relative 'journey'
 require_relative 'station'
 
 class JourneyLog
-  attr_reader :cost
+
+attr_reader :cost
 
   def initialize(journey_class: Journey.new)
     @journey_class = journey_class
