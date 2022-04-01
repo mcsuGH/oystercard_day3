@@ -22,6 +22,7 @@ attr_reader :balance, :journeylog
 
   def touch_in(station)
     fail "There are insufficient funds" if balance < MIN_BALANCE
+    fail "You have already touched in" if in_journey? == true
     @journeylog.start_journey(station)
   end
 

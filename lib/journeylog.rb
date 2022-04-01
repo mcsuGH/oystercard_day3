@@ -41,7 +41,7 @@ attr_reader :cost
   private 
 
   def record_journey
-    @journey_history.push(@current_journey)
+    @journey_history.push({entry_station: @current_journey[:entry_station], exit_station: @current_journey[:exit_station]} )
     @current_journey = {entry_station: nil, exit_station: nil}
   end
 end
