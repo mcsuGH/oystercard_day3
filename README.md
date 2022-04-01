@@ -73,9 +73,11 @@ An idea of the different classes required along with the instance variables and 
 
 Clone this repository to your desired location, run the command `gem install bundler` then run `bundle`.\
 \
-Run RSpec in the `oystercard` directory whilst in the terminal in order to run the unit tests.\
+Run RSpec in the main `oystercard` directory whilst in the terminal in order to run the unit tests.\
 \
-Alternatively, run irb and load the file `oystercard.rb` located inside the lib directory. Create a new card within irb by using `Oystercard.new`. Create stations with the command `Station.new(name,zone)` and use the methods `touch_in(station)` and `touch_out(station)` (`station` being any Stations that have been created). Remember to use `top_up` on your card before using it, as you will not be able to travel without any money on it!
+Alternatively, run irb and load the file `oystercard.rb` located inside the lib directory. Create a new card within irb by using `Oystercard.new`. Create stations with the command `Station.new(name,zone)` and use the methods `touch_in(station)` and `touch_out(station)` (`station` being any Stations that have been created). Remember to use `top_up(amount)` on your card before using it, as you will not be able to travel without any money on it!\
+\
+If you forget to `touch_out(station)`, you can use the command `no_touch_out` to end your journey, but be aware this will charge you the maximum fare as a penalty! If you forgot to `touch_in(entry_station)`, using `touch_out(exit_station)` will raise you an error that you have not yet touched in, please instead `touch_in(exit_station)` and treat your exit station as the station you entered, then you can use `no_touch_out` to end the journey, which will charge the maximum fare as a penalty.
 
 
 

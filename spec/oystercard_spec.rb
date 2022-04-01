@@ -55,6 +55,10 @@ describe Oystercard do
       subject.touch_in(entry_station)
       expect{subject.touch_out(exit_station)}.to change{subject.balance}.by(-Oystercard::MIN_BALANCE)
     end
+
+    it 'will raise an error if you touch out before touching in' do
+      expect { subject.touch_out(exit_station) }.to raise_error "You have not touched in at a station"
+    end
   end
 
   it "should have an empty journey history by default" do
