@@ -16,7 +16,7 @@ describe Journey do
 
     it "Should deduct a minimum fare of 1 if user touches in and touches out" do
         journey.finish(entry_station)
-        expect(journey.fare).to eq 1
+        expect(journey.fare).to eq Journey::MINIMUM_FARE
     end
 
     it "returns itself when exiting a journey" do
@@ -35,29 +35,29 @@ describe Journey do
     let(:exit_station4) { double "exit_station", :name => "exit_station4", :zone =>5 }
     let(:exit_station5) { double "exit_station", :name => "exit_station5", :zone =>6 }
 
-      it "charges an additional 1 when 1 zone is passed" do
+      it "charges an additional 1 for a total of 2 when 1 zone is passed" do
         journey.finish(exit_station1)
-        expect(journey.fare).to eq 2
+        expect(journey.fare).to eq Journey::MINIMUM_FARE + 1
       end
 
-      it "charges an additional 2 when 2 zones are passed" do
+      it "charges an additional 2 for a total of 3 when 2 zones are passed" do
         journey.finish(exit_station2)
-        expect(journey.fare).to eq 3
+        expect(journey.fare).to eq Journey::MINIMUM_FARE + 2
       end
 
-      it "charges an additional 3 when 3 zones are passed" do
+      it "charges an additional 3 for a total of 4 when 3 zones are passed" do
         journey.finish(exit_station3)
-        expect(journey.fare).to eq 4
+        expect(journey.fare).to eq Journey::MINIMUM_FARE + 3
       end
 
-      it "charges an additional 4 when 4 zones are passed" do
+      it "charges an additional 4 for a total of 5 when 4 zones are passed" do
         journey.finish(exit_station4)
-        expect(journey.fare).to eq 5
+        expect(journey.fare).to eq Journey::MINIMUM_FARE + 4
       end
 
-      it "charges an additional 5 when 5 zones are passed" do
+      it "charges an additional 5 for a total of 6 when 5 zones are passed" do
         journey.finish(exit_station5)
-        expect(journey.fare).to eq 6
+        expect(journey.fare).to eq Journey::MINIMUM_FARE + 5
       end
 
       it "charges the minimum fare when no zones are passed" do

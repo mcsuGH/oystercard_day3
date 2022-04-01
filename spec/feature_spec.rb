@@ -7,7 +7,6 @@ describe "A new card" do
     st2 = Station.new("test",4)
     card.top_up(50)
     card.touch_in(st1)
-    card.touch_out(st2)
-    expect(card.balance).to eq 46
+    expect {card.touch_out(st2)}.to change { card.balance }.by(-4)
   end
 end

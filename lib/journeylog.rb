@@ -2,7 +2,7 @@ require_relative 'journey'
 require_relative 'station'
 
 class JourneyLog
-  attr_reader :current_journey, :cost
+  attr_reader :cost
 
   def initialize(journey_class: Journey.new)
     @journey_class = journey_class
@@ -34,6 +34,10 @@ class JourneyLog
 
   def history
     @journey_history.dup
+  end
+
+  def current_journey
+    @current_journey ||= @journey_class = Journey.new
   end
 
   private 

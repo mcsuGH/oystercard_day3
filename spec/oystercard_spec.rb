@@ -65,6 +65,6 @@ describe Oystercard do
     subject.top_up(1)
     subject.touch_in(entry_station)
     subject.touch_out(exit_station)
-    expect(subject.journeylog.history[0]).to include(journey)
+    expect(subject.journeylog.history).to include(journey)
   end
 end
