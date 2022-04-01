@@ -2,6 +2,16 @@
 
 We have been asked to create a program to emulate an oystercard, which can be used to touch in and out of different stations and keep a record of all the journeys it has been used for. On each card, there is a balance where fares will be deducted based upon how many zones have been passed when used on a journey. If the user forgots to either touch in or out, a maximum fee will be applied instead.
 
+## Instructions
+
+Clone this repository to your desired location, run the command `gem install bundler` then run `bundle`.\
+\
+Run RSpec in the main `oystercard` directory whilst in the terminal in order to run the unit tests.\
+\
+Alternatively, run irb and load the file `oystercard.rb` located inside the lib directory. Create a new card within irb by using `Oystercard.new`. Create stations with the command `Station.new(name,zone)` and use the methods `touch_in(station)` and `touch_out(station)` (`station` being any Stations that have been created). Remember to use `top_up(amount)` on your card before using it, as you will not be able to travel without any money on it!\
+\
+If you forget to `touch_out(station)`, you can use the command `no_touch_out` to end your journey, but be aware this will charge you the maximum fare as a penalty! If you forgot to `touch_in(entry_station)`, using `touch_out(exit_station)` will raise you an error that you have not yet touched in, please instead `touch_in(exit_station)` and treat your exit station as the station you entered, then you can use `no_touch_out` to end the journey, which will charge the maximum fare as a penalty.
+
 ## User Stories
 ```
 In order to use public transport
@@ -69,15 +79,8 @@ I need to have the correct fare calculated
 
 An idea of the different classes required along with the instance variables and methods for each class.
 
-## Instructions
+## Tasks yet to be completed
 
-Clone this repository to your desired location, run the command `gem install bundler` then run `bundle`.\
-\
-Run RSpec in the main `oystercard` directory whilst in the terminal in order to run the unit tests.\
-\
-Alternatively, run irb and load the file `oystercard.rb` located inside the lib directory. Create a new card within irb by using `Oystercard.new`. Create stations with the command `Station.new(name,zone)` and use the methods `touch_in(station)` and `touch_out(station)` (`station` being any Stations that have been created). Remember to use `top_up(amount)` on your card before using it, as you will not be able to travel without any money on it!\
-\
-If you forget to `touch_out(station)`, you can use the command `no_touch_out` to end your journey, but be aware this will charge you the maximum fare as a penalty! If you forgot to `touch_in(entry_station)`, using `touch_out(exit_station)` will raise you an error that you have not yet touched in, please instead `touch_in(exit_station)` and treat your exit station as the station you entered, then you can use `no_touch_out` to end the journey, which will charge the maximum fare as a penalty.
-
+Code needs further changes - currently many tests are testing state and not behaviour - will need to add new methods to test (such as `print_journey_history` to check journey history) so that I can test the behaviour of the program instead, which will allow me to remove some of the attribute readers.
 
 
