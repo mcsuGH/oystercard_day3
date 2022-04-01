@@ -26,7 +26,7 @@ attr_reader :balance, :journeylog
   end
 
   def touch_out(station)
-    fail "You have not touched in at a station" if @journeylog.current_journey[:entry_station] == nil
+    fail "You have not touched in at a station" if in_journey? == false
     @journeylog.end_journey(station)
     deduct(@journeylog.cost)
   end
@@ -40,6 +40,10 @@ attr_reader :balance, :journeylog
 
   def deduct(money)
     @balance -= money
+  end
+
+  def in_journey?
+    @journeylog.current_journey[:entry_station] == nil ? false : true
   end
 end
 

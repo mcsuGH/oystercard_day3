@@ -1,5 +1,3 @@
-require_relative 'station'
-
 class Journey
 
 attr_reader :exit_station, :entry_station
