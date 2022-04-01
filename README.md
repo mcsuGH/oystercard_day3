@@ -81,8 +81,6 @@ An idea of the different classes required along with the instance variables and 
 
 ## Tasks yet to be completed
 
-Code needs further changes - currently many tests are testing state and not behaviour - will need to add new methods to test (such as `print_journey_history` to check journey history) so that I can test the behaviour of the program instead, which will allow me to remove some of the attribute readers.
-
-Also need to add further doubles (such as a double for `JourneyLog` class inside `oystercard.rb`) and work on tests more.
+Code needs further changes - currently many tests are testing state and not behaviour - will need to add new methods to test (for example `print_journey_history` to check journey history) so that I can test the behaviour of the program instead, which will allow me to remove some of the attribute readers.
 
 

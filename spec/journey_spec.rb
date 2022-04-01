@@ -3,7 +3,7 @@ require_relative '../lib/journey.rb'
 describe Journey do
   let(:entry_station) { double "entry_station", :name => "entry_station", :zone=>1 }
   let(:exit_station) { double "exit_station", :name => "exit_station", :zone=>1 }
-  let(:journey) { Journey.new(entry_station)}
+  let(:journey) { Journey.new(entry_station) }
 
   it "should remember the entry station after touch in" do
     journey.entry_station
